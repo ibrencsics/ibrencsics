@@ -1,0 +1,17 @@
+Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
+    More details are available here: https://intel.github.io/scikit-learn-intelex
+
+    For example:
+
+        $ conda install scikit-learn-intelex
+        $ python -m sklearnex my_application.py
+
+
+
+
+
+
+
+medium / crypto_1:
+    https://medium.com/@romanorac/cryptocurrency-analysis-with-python-macd-452ceb251d7c?source=email-b996edec20ab-1639964214713-digest.reader-7f60cf5620c9-452ceb251d7c----0-59------------------321a0876_7583_4689_9797_4b218ba42f20-1-73207f2f_1d03_4552_aec4_41cb99e192e5
+
