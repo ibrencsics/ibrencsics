@@ -96,6 +96,9 @@ ticker = 'GOOG'
 # stdev = Stdev()
 # stdev_series = stdev.calculate(close, 20)
 # pandasPlotVisualizer.plot_series_subplots(ticker, [close], [stdev_series])
+# stdev_series = stdev.calculate_manual(close, 20)
+# pandasPlotVisualizer.plot_series_subplots(ticker, [close], [stdev_series])
+
 
 # mom = Mom()
 # mom_series = mom.calculate(close, 20)
@@ -104,7 +107,5 @@ ticker = 'GOOG'
 
 df = provider.download_data(yfReader, ticker, '2001-01-01', '2018-01-01', '1d')
 adj_close = df.adj_close
-
 seasonality = Seasonality()
-monthly_return_list = seasonality.calculate(adj_close)
-pandasPlotVisualizer.test(monthly_return_list)
+seasonality.test(adj_close)

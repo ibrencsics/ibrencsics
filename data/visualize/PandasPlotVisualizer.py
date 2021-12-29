@@ -76,15 +76,55 @@ class PandasPlotVisualizer(VisualizerInterface):
         manager.window.showMaximized()
         plt.show()
 
-    def test(self, series):
+    def monthly_return(self, series):
         series.boxplot(column='monthly_return', by='month')
+
         ax = plt.gca()
-        labels = [item.get_text() for item in ax.get_xticklabels()]
-        labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', \
-                  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        # labels = [item.get_text() for item in ax.get_xticklabels()]
+        labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
         ax.set_xticklabels(labels)
         ax.set_ylabel('GOOG return')
+
         plt.tick_params(axis='both', which='major', labelsize=7)
         plt.title("GOOG Montly return 2001-2018")
         plt.suptitle("")
+
+        manager = plt.get_current_fig_manager()
+        manager.window.showMaximized()
+        plt.show()
+
+    # Displaying rolling statistics
+    def plot_rolling_statistics(self, series, titletext, ytext, window_size=12):
+        series.plot(color='red', label='Original', lw=0.5)
+        series.rolling(window_size).mean().plot(color='blue', label='Rolling Mean')
+        series.rolling(window_size).std().plot(color='black', label='Rolling Std')
+
+        plt.legend(loc='best')
+        plt.ylabel(ytext)
+        plt.title(titletext)
+
+        manager = plt.get_current_fig_manager()
+        manager.window.showMaximized()
+        plt.show()
+        # plt.show(block=False)
+
+    def plot_test1(self, series):
+        from statsmodels.graphics.tsaplots import plot_acf
+        from statsmodels.graphics.tsaplots import plot_pacf
+        # from matplotlib import pyplot
+
+        plt.figure()
+        plt.subplot(211)
+        plot_acf(series[1:], ax=plt.gca(), lags=10)
+        plt.subplot(212)
+        plot_pacf(series[1:], ax=plt.gca(), lags=10)
+        plt.show()
+
+    def plot_arima(self, series):
+        from statsmodels.tsa.arima.model import ARIMA
+
+        model = ARIMA(series[1:], order=(2, 0, 2))
+        fitted_results = model.fit()
+        series[1:].plot()
+        fitted_results.fittedvalues.plot(color='red')
         plt.show()

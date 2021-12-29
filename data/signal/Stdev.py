@@ -5,6 +5,11 @@ import pandas as pd
 class Stdev:
 
     def calculate(self, series, time_period):
+        std = series.rolling(window=time_period).std()
+        std.name = 'std' + str(time_period)
+        return std
+
+    def calculate_manual(self, series, time_period):
         history = []  # history of prices
         sma_values = []  # to track moving average values for visualization purposes
         stddev_values = []  # history of computed stdev values
