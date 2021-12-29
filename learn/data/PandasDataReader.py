@@ -1,6 +1,6 @@
 import pandas as pd
 import pandas_datareader.data as web
-from data.DataReaderInterface import DataReaderInterface
+from learn.data.DataReaderInterface import DataReaderInterface
 
 class PandasDataReader(DataReaderInterface):
 

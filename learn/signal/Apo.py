@@ -1,4 +1,4 @@
-from data.signal.Ema import Ema
+from learn.signal.Ema import Ema
 
 class Apo:
 

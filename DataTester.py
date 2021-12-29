@@ -1,21 +1,13 @@
-from data.CachingDataProvider import CachingDataProvider
-from data.FinnhubReader import FinnhubReader
-from data.IntrinioReader import IntrinioReader
-from data.PandasDataReader import PandasDataReader
-from data.QuandlReader import QuandlReader
-from data.YFinanceReader import YFinanceReader
-from data.signal.Apo import Apo
-from data.signal.Bbands import Bbands
-from data.signal.Ema import Ema
-from data.signal.Macd import Macd
-from data.signal.Mom import Mom
-from data.signal.Rsi import Rsi
-from data.signal.Seasonality import Seasonality
+from learn.data.CachingDataProvider import CachingDataProvider
+from learn.data.FinnhubReader import FinnhubReader
+from learn.data.IntrinioReader import IntrinioReader
+from learn.data.PandasDataReader import PandasDataReader
+from learn.data.QuandlReader import QuandlReader
+from learn.data.YFinanceReader import YFinanceReader
+from learn.signal.Bbands import Bbands
+from learn.signal.Macd import Macd
 
-from data.signal.Sma import Sma
-from data.signal.Stdev import Stdev
-
-from data.visualize.PandasPlotVisualizer import PandasPlotVisualizer
+from learn.visualize.PandasPlotVisualizer import PandasPlotVisualizer
 
 yfReader = YFinanceReader()
 qReader = QuandlReader()
@@ -63,9 +55,9 @@ pandasPlotVisualizer = PandasPlotVisualizer()
 
 
 ticker = 'GOOG'
-# df = provider.download_data(yfReader, ticker, '2014-01-01', '2018-01-01', '1d')
-# df_tail = df.tail(620)
-# close = df_tail.close
+df = provider.download_data(yfReader, ticker, '2014-01-01', '2018-01-01', '1d')
+df_tail = df.tail(620)
+close = df_tail.close
 
 # sma = Sma()
 # sma50 = sma.calculate(close, 50)
@@ -81,9 +73,9 @@ ticker = 'GOOG'
 # ema_fast, ema_slow, apo_val = apo.calculate(close, 10, 40, 2)
 # pandasPlotVisualizer.plot_series_subplots(ticker, [close, ema_fast, ema_slow], [apo_val])
 
-# macd = Macd()
-# ema_fast, ema_slow, apo, macd_signal, macd_histogram = macd.calculate(close, 10, 40, 20, 2)
-# pandasPlotVisualizer.plot_series_histogram([close, ema_fast, ema_slow], [apo, macd_signal], [macd_histogram], ticker)
+macd = Macd()
+ema_fast, ema_slow, apo, macd_signal, macd_histogram = macd.calculate(close, 10, 40, 20, 2)
+pandasPlotVisualizer.plot_series_histogram([close, ema_fast, ema_slow], [apo, macd_signal], [macd_histogram], ticker)
 
 # bbands = Bbands()
 # sma, lower, upper = bbands.calculate(close, 20, 2)
@@ -105,7 +97,7 @@ ticker = 'GOOG'
 # pandasPlotVisualizer.plot_series_subplots(ticker, [close], [mom_series])
 
 
-df = provider.download_data(yfReader, ticker, '2001-01-01', '2018-01-01', '1d')
-adj_close = df.adj_close
-seasonality = Seasonality()
-seasonality.test(adj_close)
+# df = provider.download_data(yfReader, ticker, '2001-01-01', '2018-01-01', '1d')
+# adj_close = df.adj_close
+# seasonality = Seasonality()
+# seasonality.test(adj_close)

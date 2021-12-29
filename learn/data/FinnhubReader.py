@@ -5,7 +5,7 @@ import datetime
 import pytz
 
 # Setup client
-from data.DataReaderInterface import DataReaderInterface
+from learn.data.DataReaderInterface import DataReaderInterface
 
 freq_dist = {
     '3mo': 'M',

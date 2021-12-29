@@ -1,5 +1,5 @@
-from data.signal.Apo import Apo
-from data.signal.Ema import Ema
+from learn.signal.Apo import Apo
+from learn.signal.Ema import Ema
 
 
 class Macd:

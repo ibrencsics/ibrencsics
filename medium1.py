@@ -122,9 +122,9 @@ dfpred = load_aapl_for_prediction()
 # Drop missing value
 dfpred.fillna(value=-99999, inplace=True)
 
-# We want to separate 1 percent of the data to forecast
+# We want to separate 1 percent of the learn to forecast
 forecast_out = int(math.ceil(0.01 * len(dfpred)))
-print('data length: {}, forecast legth: {}'.format(len(dfpred), forecast_out))
+print('learn length: {}, forecast legth: {}'.format(len(dfpred), forecast_out))
 
 # Separating the label here, we want to predict the AdjClose
 forecast_col = 'Adj Close'

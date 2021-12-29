@@ -1,7 +1,7 @@
 import pandas as pd
 from statsmodels.tsa.stattools import adfuller
 
-from data.visualize.PandasPlotVisualizer import PandasPlotVisualizer
+from learn.visualize.PandasPlotVisualizer import PandasPlotVisualizer
 
 class Seasonality:
 

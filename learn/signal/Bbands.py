@@ -2,8 +2,8 @@ import math
 import statistics as stats
 import pandas as pd
 
-from data.signal.Sma import Sma
-from data.signal.Stdev import Stdev
+from learn.signal.Sma import Sma
+from learn.signal.Stdev import Stdev
 
 
 class Bbands:

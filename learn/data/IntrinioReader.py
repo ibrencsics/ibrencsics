@@ -1,6 +1,6 @@
 import intrinio_sdk
 import pandas as pd
-from data.DataReaderInterface import DataReaderInterface
+from learn.data.DataReaderInterface import DataReaderInterface
 
 freq_dist = {
     '1mo': 'monthly',

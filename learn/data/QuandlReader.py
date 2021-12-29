@@ -1,6 +1,6 @@
 import quandl
 import pandas as pd
-from data.DataReaderInterface import DataReaderInterface
+from learn.data.DataReaderInterface import DataReaderInterface
 
 QUANDL_KEY = 'r2yvZufsxoZz7DyJS8ft'
 quandl.ApiConfig.api_key = QUANDL_KEY

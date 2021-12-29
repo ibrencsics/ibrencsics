@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from data.visualize.VisualizerInterface import VisualizerInterface
+from learn.visualize.VisualizerInterface import VisualizerInterface
 
 class PandasPlotVisualizer(VisualizerInterface):
 

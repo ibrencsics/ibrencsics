@@ -16,7 +16,7 @@ def download_data(from_symbol, to_symbol, exchange, datetime_interval):
     supported_intervals = {'minute', 'hour', 'day'}
     assert datetime_interval in supported_intervals, 'datetime_interval should be one of %s' % supported_intervals
 
-    print('Downloading %s trading data for %s %s from %s' %
+    print('Downloading %s trading learn for %s %s from %s' %
           (datetime_interval, from_symbol, to_symbol, exchange))
     base_url = 'https://min-api.cryptocompare.com/data/histo'
     url = '%s%s' % (base_url, datetime_interval)
@@ -44,17 +44,17 @@ def filter_empty_datapoints(df):
     return df
 
 
-# data = download_data(from_symbol, to_symbol, exchange, datetime_interval)
-# df = convert_to_dataframe(data)
+# learn = download_data(from_symbol, to_symbol, exchange, datetime_interval)
+# df = convert_to_dataframe(learn)
 # df = filter_empty_datapoints(df)
 
 current_datetime = datetime.now().date().isoformat()
 filename = get_filename(from_symbol, to_symbol, exchange, datetime_interval, current_datetime)
-# print('Saving data to %s' % filename)
+# print('Saving learn to %s' % filename)
 # df.to_csv(filename, index=False)
 
 def read_dataset(filename):
-    print('Reading data from %s' % filename)
+    print('Reading learn from %s' % filename)
     df = pd.read_csv(filename)
     df.datetime = pd.to_datetime(df.datetime) # change type from object to datetime
     df = df.set_index('datetime')
