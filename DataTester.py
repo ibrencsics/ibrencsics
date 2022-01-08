@@ -4,6 +4,7 @@ from learn.data.IntrinioReader import IntrinioReader
 from learn.data.PandasDataReader import PandasDataReader
 from learn.data.QuandlReader import QuandlReader
 from learn.data.YFinanceReader import YFinanceReader
+from learn.signal.Apo import Apo
 from learn.signal.Bbands import Bbands
 from learn.signal.Macd import Macd
 
@@ -54,10 +55,10 @@ pandasPlotVisualizer = PandasPlotVisualizer()
 # pandasPlotVisualizer.plot(df, 'AAPL')
 
 
-ticker = 'GOOG'
-df = provider.download_data(yfReader, ticker, '2014-01-01', '2018-01-01', '1d')
-df_tail = df.tail(620)
-close = df_tail.close
+# ticker = 'GOOG'
+# df = provider.download_data(yfReader, ticker, '2014-01-01', '2018-01-01', '1d')
+# df_tail = df.tail(620)
+# close = df_tail.close
 
 # sma = Sma()
 # sma50 = sma.calculate(close, 50)
@@ -73,9 +74,9 @@ close = df_tail.close
 # ema_fast, ema_slow, apo_val = apo.calculate(close, 10, 40, 2)
 # pandasPlotVisualizer.plot_series_subplots(ticker, [close, ema_fast, ema_slow], [apo_val])
 
-macd = Macd()
-ema_fast, ema_slow, apo, macd_signal, macd_histogram = macd.calculate(close, 10, 40, 20, 2)
-pandasPlotVisualizer.plot_series_histogram([close, ema_fast, ema_slow], [apo, macd_signal], [macd_histogram], ticker)
+# macd = Macd()
+# ema_fast, ema_slow, apo, macd_signal, macd_histogram = macd.calculate(close, 10, 40, 20, 2)
+# pandasPlotVisualizer.plot_series_histogram([close, ema_fast, ema_slow], [apo, macd_signal], [macd_histogram], ticker)
 
 # bbands = Bbands()
 # sma, lower, upper = bbands.calculate(close, 20, 2)
